@@ -4,6 +4,6 @@ resource "aws_instance" "main" {
   vpc_security_group_ids = [ aws_security_group.web1.id ]
   tags = {
     Name        = "${var.env}-instance"
-    Name1 = format("%s-instance, var.env")
+    Name1 = format("%s-instance", var.env)
   }
 } 
