@@ -3,9 +3,10 @@ resource "aws_security_group" "web1" {
   description = "this is a security group for web instance"
 }
 resource "aws_security_group_rule" "web_ingress" {
+  count = 2
   type              = "ingress"
-  from_port         = element(var.ports, 0)
-  to_port           = element(var.ports, 0)
+  from_port         = element(var.ports, count.index )
+  to_port           = element(var.ports, count.index )
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.web1.id

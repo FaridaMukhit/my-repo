@@ -13,5 +13,5 @@ variable "instance_type" {
 variable "ports" {
     type = list(string)
     description = "this is a variable for ports"
-    default = ["22"]
+    default = ["22", "80"]
 }
