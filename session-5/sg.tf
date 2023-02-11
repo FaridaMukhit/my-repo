@@ -3,7 +3,7 @@ resource "aws_security_group" "web1" {
   description = "this is a security group for web instance"
 }
 resource "aws_security_group_rule" "web_ingress" {
-  count = 2
+  count = lenght (var.ports)
   type              = "ingress"
   from_port         = element(var.ports, count.index )
   to_port           = element(var.ports, count.index )
