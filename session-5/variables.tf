@@ -9,3 +9,9 @@ variable "instance_type" {
     description = "this is a variable for instance type"
     default = "t2.micro"
 }
+
+variable "ports" {
+    type = list(string)
+    description = "this is a variable for ports"
+    default = ["22"]
+}
