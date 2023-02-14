@@ -6,9 +6,9 @@ sed -i "s/_env_/$ENV/g" backend.tf
 echo "Environment is set ot $ENV"
 
 terraform init
-terraform plan -var-files-$ENV.tfvars
+terraform plan -var-files=$ENV.tfvars
 
-terrafrom apply -var-files-$ENV.tfvars -auto-approve
+terrafrom apply -var-files=$ENV.tfvars -auto-approve
 
 
 echo "rolling back the backend"
