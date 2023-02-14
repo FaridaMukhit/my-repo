@@ -8,11 +8,8 @@ echo "Environment is set ot $ENV"
 terraform init
 terraform plan -var-files-$ENV.tfvars
 
-read -p "are you sure you want to apply it?" apply
-if $apply == [yes]:
-then terrafrom apply -var-files-$ENV.tfvars -auto-approve
-else echo "terraform is not gonna apply"
-fi
+terrafrom apply -var-files-$ENV.tfvars -auto-approve
+
 
 echo "rolling back the backend"
 sed -i "s/$ENV/_env_/g" backend.tf
