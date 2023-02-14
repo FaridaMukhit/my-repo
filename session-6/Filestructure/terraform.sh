@@ -1,14 +1,14 @@
 #!/bin/bash
 rm -rf .terraform
-read -p "which environment would you like?"
+read -p "which environment would you like?" ENV
 echo $ENV 
 sed -i "s/_env_/$ENV/g" backend.tf
 echo "Environment is set ot $ENV"
 
 terraform init
-terraform plan -var-files=$ENV.tfvars
+terraform plan -var-file=$ENV.tfvars
 
-terrafrom apply -var-files=$ENV.tfvars -auto-approve
+terrafrom apply -var-file=$ENV.tfvars -auto-approve
 
 
 echo "rolling back the backend"
