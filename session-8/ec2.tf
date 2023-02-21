@@ -20,6 +20,12 @@ resource "aws_instance" "main" {
       "sudo systemctl start httpd",
       "sudo cp /tmp/index.html /var/www/html/index.html"
     ]
+    connection {
+      type = "ssh"
+      user = "ec2-user"
+      host = self.public_ip
+      private_key = file("~/.ssh/id_rsa")
+    }
   
   }
 }
