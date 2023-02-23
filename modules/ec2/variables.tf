@@ -19,6 +19,6 @@ variable "instance_type" {
 variable "sg" {
     type = list(string)
     description = "this is a variable for instance type"
-    default = ""
+    default = [""]
 }
 
